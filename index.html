@@ -1,63 +1,105 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dilkash Alam | Portfolio</title>
-<script src="https://cdn.tailwindcss.com"></script><style>
-html { scroll-behavior:smooth; }
-.fade-in { opacity:0; transform:translateY(20px); transition:0.8s; }
-.fade-in.show { opacity:1; transform:translateY(0); }
-</style></head>
-<body class="bg-slate-900 text-white"><!-- HERO --><section class="h-screen flex flex-col justify-center items-center text-center">
-<h1 id="typing" class="text-4xl font-bold mb-4"></h1>
-<p>I build responsive websites that help clients grow online</p><div class="mt-4">
-<a href="#contact" class="bg-sky-500 px-4 py-2 rounded mr-2">Hire Me</a>
-<a href="https://wa.me/917982807376" target="_blank" class="bg-green-500 px-4 py-2 rounded">WhatsApp</a>
-</div>
-</section><!-- PROJECTS --><section class="p-6 fade-in">
-<h2 class="text-2xl mb-4">Projects</h2><div class="mb-4">
-<h3>Todo App</h3>
-<a href="#">Live Demo</a> | <a href="#">View Code</a>
-</div><div class="mb-4">
-<h3>E-commerce UI</h3>
-<a href="#">Live Demo</a> | <a href="#">View Code</a>
-</div><div class="mb-4">
-<h3>Form Validation</h3>
-<a href="#">Live Demo</a> | <a href="#">View Code</a>
-</div></section><!-- WHY HIRE ME --><section class="p-6 fade-in">
-<h2 class="text-2xl mb-4">Why Hire Me?</h2>
-<ul>
-<li>Fast Delivery</li>
-<li>Clean Code</li>
-<li>Responsive Design</li>
-<li>Client Satisfaction</li>
-</ul>
-</section><!-- CONTACT --><section id="contact" class="p-6 fade-in">
-<h2 class="text-2xl mb-4">Contact</h2>
-<p>Email: dilkashalam810@gmail.com</p>
-<p>Phone: 7982807376</p>
-</section><script>
-// typing effect
-let text="Hi, I'm Dilkash Alam";
-let i=0;
-function type(){
- if(i<text.length){
-  document.getElementById("typing").innerHTML+=text.charAt(i);
-  i++;
-  setTimeout(type,80);
- }
-}
-type();
+<title>Form Validation</title>
 
-// scroll animation
-let elements=document.querySelectorAll('.fade-in');
-window.addEventListener('scroll',()=>{
- elements.forEach(el=>{
-  let pos=el.getBoundingClientRect().top;
-  if(pos<window.innerHeight-100){
-   el.classList.add('show');
+<style>
+body {
+  font-family: Arial;
+  background:#0f172a;
+  color:white;
+}
+
+.container {
+  max-width:400px;
+  margin:auto;
+  margin-top:50px;
+}
+
+input {
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+}
+
+.error {
+  color:red;
+  font-size:14px;
+}
+
+button {
+  padding:10px;
+  width:100%;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Signup Form</h2>
+
+  <form onsubmit="return validateForm()">
+    <input type="text" id="name" placeholder="Name">
+    <div id="nameError" class="error"></div>
+
+    <input type="text" id="email" placeholder="Email">
+    <div id="emailError" class="error"></div>
+
+    <input type="password" id="password" placeholder="Password">
+    <div id="passError" class="error"></div>
+
+    <button type="submit">Submit <button style="
+background:#22c55e;
+color:white;
+border:none;
+padding:10px;
+border-radius:6px;
+cursor:pointer;
+margin-top:10px;">
+🔴 Live Demo
+</button>
+  </form>
+</div>
+
+<script>
+function validateForm(){
+
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
+
+  let valid = true;
+
+  // Name
+  if(name.length < 3){
+    document.getElementById("nameError").innerText = "Name must be 3+ characters";
+    valid = false;
+  } else {
+    document.getElementById("nameError").innerText = "";
   }
- });
-});
-</script></body>
+
+  // Email
+  if(!email.includes("@")){
+    document.getElementById("emailError").innerText = "Invalid email";
+    valid = false;
+  } else {
+    document.getElementById("emailError").innerText = "";
+  }
+
+  // Password
+  if(password.length < 6){
+    document.getElementById("passError").innerText = "Password must be 6+ characters";
+    valid = false;
+  } else {
+    document.getElementById("passError").innerText = "";
+  }
+
+  return valid;
+}
+</script>
+
+</body>
 </html>
