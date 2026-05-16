@@ -1,105 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Form Validation</title>
-
-<style>
-body {
-  font-family: Arial;
-  background:#0f172a;
-  color:white;
-}
-
-.container {
-  max-width:400px;
-  margin:auto;
-  margin-top:50px;
-}
-
-input {
-  width:100%;
-  padding:10px;
-  margin:10px 0;
-}
-
-.error {
-  color:red;
-  font-size:14px;
-}
-
-button {
-  padding:10px;
-  width:100%;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms - Lets Learn It</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<div class="container">
-  <h2>Signup Form</h2>
-
-  <form onsubmit="return validateForm()">
-    <input type="text" id="name" placeholder="Name">
-    <div id="nameError" class="error"></div>
-
-    <input type="text" id="email" placeholder="Email">
-    <div id="emailError" class="error"></div>
-
-    <input type="password" id="password" placeholder="Password">
-    <div id="passError" class="error"></div>
-
-    <button type="submit">Submit <button style="
-background:#22c55e;
-color:white;
-border:none;
-padding:10px;
-border-radius:6px;
-cursor:pointer;
-margin-top:10px;">
-🔴 Live Demo
-</button>
-  </form>
-</div>
-
-<script>
-function validateForm(){
-
-  let name = document.getElementById("name").value;
-  let email = document.getElementById("email").value;
-  let password = document.getElementById("password").value;
-
-  let valid = true;
-
-  // Name
-  if(name.length < 3){
-    document.getElementById("nameError").innerText = "Name must be 3+ characters";
-    valid = false;
-  } else {
-    document.getElementById("nameError").innerText = "";
-  }
-
-  // Email
-  if(!email.includes("@")){
-    document.getElementById("emailError").innerText = "Invalid email";
-    valid = false;
-  } else {
-    document.getElementById("emailError").innerText = "";
-  }
-
-  // Password
-  if(password.length < 6){
-    document.getElementById("passError").innerText = "Password must be 6+ characters";
-    valid = false;
-  } else {
-    document.getElementById("passError").innerText = "";
-  }
-
-  return valid;
-}
-</script>
-
+    <h1>Form To Sigma Web Devlopment course - TA</h1>
+    <form action="post">
+        <div>
+            <label for="username">Enter Your Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter Your Username" autofocous required>
+        </div>
+        <div>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>
+        </div>
+        <div>
+            <input type="checkbox" id="subscribe" name="subscribe" value="yes">
+            <label for="subscribe">Subscribe to Newsletter</label>
+        </div>
+            <label for="comment">Enter Your Comment:</label>
+            <br>
+            <textarea name="comment" rows="4" cols="50">Enter your comments here...
+            </textarea>
+         </div>
+         <div>
+            <select name="course" id="course">
+                <option value="webdev">Web Development</option>
+                <option value="datasci">Data Science</option>
+                <option value="cybersec">Cyber Security</option>
+         </div>
+         <div>
+             <label for="password">Enter Your Password:</label>
+             <input type="password" id="password" name="password" placeholder="Enter Your Password">
+         </div>
+         <div>
+             <label for="email">Enter Your Email:</label>
+             <input type="email" id="email" name="email" placeholder="Enter Your Email">
+         </div>
+         <div>
+             <label for="date">Select a Date:</label>
+             <input type="date" id="date" name="date">
+         </div>
+         <div>
+            <label for="time">Select a Time:</label>
+             <input type="time" id="time" name="time">
+         </div>
+         <div>
+            <label for="color">Choose a Color:</label>
+            <input type="color" id="color" name="color">
+        </div>
+        <div>
+             <label for="number">Enter a Number:</label>
+             <input type="number" id="number" name="number">
+        </div>
+        <div>
+             <label for="range">Select a Range:</label>
+             <input type="range" id="range" name="range">
+        </div>
+        <div>
+             <label for="url">Enter a URL:</label>
+             <input type="url" id="url" name="url" placeholder="Enter a URL">
+        </div>
+        <div>
+             <label for="tel">Enter Your Phone Number:</label>
+             <input type="tel" id="tel" name="tel" placeholder="Enter Your Phone Number">
+        </div>
+       <div>
+             <label for="search">Search:</label>
+             <input type="search" id="search" name="search" placeholder="Search...">
+        </div>
+        <div>
+             <label for="hidden">Hidden Input:</label>
+             <input type="hidden" id="hidden" name="hidden" value="hiddenValue">
+        </div>
+        <div>
+            <label for="month">Select a Month:</label>
+            <input type="month" id="month" name="month">
+        </div>
+        <div>
+             <label for="week">Select a Week:</label>
+             <input type="week" id="week" name="week">
+        </div>
+        <div>
+             <label for="datetime-local">Select Date and Time:</label>
+             <input type="datetime-local" id="datetime-local" name="datetime-local">
+        </div>
+        <div>
+             <label for="file">Upload a File:</label>
+             <input type="file" id="file" name="file">
+        </div>
+        <div>
+             <label for="checkbox">Accept Terms and Conditions:</label>
+             <input type="checkbox" id="checkbox" name="checkbox">
+        </div>
+        <div>
+             <label for="radio">Select an Option:</label>
+             <input type="radio" id="option1" name="radio" value="option1">
+             <label for="option1">Option 1</label>
+             <input type="radio" id="option2" name="radio" value="option2">
+             <label for="option2">Option 2</label>
+        </div>
+        <div>
+             <label for="select">Choose an Option:</label>
+             <select id="select" name="select">
+                 <option value="option1">Option 1</option>
+                 <option value="option2">Option 2</option>
+                 <option value="option3">Option 3</option>
+             </select>
+        </div>
+    <div>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+            <button type="button" onclick="alert('Button Clicked!')">Click Me</button>
+        </div>
+    </form>
+            
 </body>
 </html>
